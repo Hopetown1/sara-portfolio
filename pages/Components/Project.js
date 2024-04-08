@@ -6,7 +6,7 @@ const Project = ({ title, brand, date }) => {
 
   return (
     <article className={styles.project} 
-    onClick={() => setSelectedProject(project)}  
+    onClick={() => console.log(title, brand, date)}  
     >
       <p className={styles.p}>{title} | {brand} | {date}</p>
     </article>
