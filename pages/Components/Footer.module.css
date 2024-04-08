@@ -1,0 +1,35 @@
+/* Footer.module.css */
+.footer {
+    width: 100%;
+    background-color: #ffffff;  /* Placeholder color */
+    display: flex;  /* Two columns */
+    /* justify-content: space-between;  Align columns */
+    border: 1px solid red;  /* Temporary border for inspection */
+    /* align-items: left; */
+    padding: 10px;
+    box-sizing: border-box; 
+    height: 10vh;
+  }
+
+.h1 {
+font-size: 20px;
+line-height: 18px;  
+padding: 0;
+margin: 0;
+width: fit-content;
+}
+
+.h1:not(:first-child) {
+    cursor: pointer 
+}
+
+.column{
+/* text-align: left; */
+/* align-self: left; */
+border: 1px solid red;
+width: 50%;
+padding: 0;
+margin:0;
+display: flex;
+flex-direction: column
+}
