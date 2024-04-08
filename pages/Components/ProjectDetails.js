@@ -1,14 +1,14 @@
 // ProjectDetails.js
 import React from 'react';
 import styles from './ProjectDetails.module.css';
-
+import Image from 'next/image'
 const ProjectDetails = ({ project }) => {
   if (!project) {
-    return <div>Please select a project</div>;
+    return <div>Nothing Currently Selected </div>;
   }
 
   return (
-    <div>
+    <div className={styles.column_wrapper}>
   {project.text_1 && ( 
      <p className={styles.text_1}>{project.text_1}</p> 
   )}
@@ -27,7 +27,21 @@ const ProjectDetails = ({ project }) => {
     {project.text_2_line3}
      </p> 
   )}
-  {/* Image rendering ... */}
+<div className={styles.imageContainer}>
+   {project.images.map((image, index) => (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        src={image.src}
+         alt={project.title}
+         key={image.src}
+         className={
+            image.layout === "stacked" 
+              ? styles.stackedImage 
+              : styles.twoPerRowImage 
+         }
+      />
+   ))}
+</div>
 </div> 
   );
 };

@@ -14,10 +14,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
+      <mains style={{ backgroundColor: '#7414140' }}>
         <Section />
         <Footer /> 
-      </main>
+      </mains>
   
     </>
   );

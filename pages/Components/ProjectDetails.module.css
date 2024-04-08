@@ -1,3 +1,9 @@
+.column_wrapper{
+    font-size: 20px;
+    line-height: 18px;  
+    font-weight: 400;
+}
+
 .text_1{
     margin-top:calc(7vh + 18px);
     padding: 0;
@@ -7,12 +13,34 @@
     padding:0;
     margin-top: 1rem;
     margin-bottom: 0;
+    color: rgba(0, 0, 0, 0.4);
 }
 .text_2_line2{
     padding:0;
     margin:0;
+    color: rgba(0, 0, 0, 0.4);
 }
 .text_2_line3{
     padding:0;
     margin:0;
+    color: rgba(0, 0, 0, 0.4);
 }
+
+.imageContainer {
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: space-between; /* Distribute space between images */
+  }
+  
+  .stackedImage {
+    width: 100%; 
+
+    margin-top: 1.5rem; /* Adjust the margin as needed */
+  }
+  
+  .twoPerRowImage {
+    width: 48%; /* Ensure there's enough space for the gap */
+    margin-top: 1.5rem;
+
+  }
+  

@@ -14,11 +14,11 @@ const projectsData = [
       text_2_line1: "In collaboration with Ark Branding",
       text_2_line2: "Photography by Haim Yosef",
       images: [
-        {src:"Niko/Niko Motion Black.gif", layout: "stacked"},
-        {src:"Niko/Niko Sara Barcons.gif", layout: "stacked"},
-        {src:"Niko/Niko.gif", layout: "two per row"},
-        {src:"Niko/Niko Post 2.png", layout: "two per row"},
-        {src:"public/Niko/Niko 3 Post.png", layout: "stacked"}
+        {src:"/Niko/Niko Motion Black.gif", layout: "stacked"},
+        {src:"/Niko/Niko Sara Barcons.gif", layout: "stacked"},
+        {src:"/Niko/Niko.gif", layout: "two per row"},
+        {src:"/Niko/Niko Post 2.png", layout: "two per row"},
+        {src:"/Niko/Niko 3 Post.png", layout: "stacked"}
       ]
     },
     {
@@ -82,7 +82,13 @@ const projectsData = [
       date: "2021",
     },
   ];
-  
+
+const saraInfo = {
+  text_1: "Sara Barcons is a graphic and type designer based in Munich. Recently graduated from a BA in Design and Innovation in Barcelona, she has experience working in the design industry during her studies.",
+  text_2_line1: "Contact for projects/collaborations",
+  text_2_line2: "sarabarcons@gmail.com"
+}
+
 
   
 const Section = () => {
@@ -94,7 +100,9 @@ const Section = () => {
       
       <div className={styles.column_1}> 
 
-      <h1 className={styles.h1}>Sara Barcons</h1> 
+      <h1 className={styles.h1}>Sara Barcons
+      
+      </h1> 
 
 
       <div className={styles.projectList}>
@@ -102,10 +110,13 @@ const Section = () => {
           {projectsData.map((project) => (
             <ul className={styles.projectItem} key={project.title} onClick={() => { 
               setSelectedProject(project);
-              console.log(selectedProject); 
           }}>
-            <article className={styles.project} onClick={() => console.log("selected Project title:", project.title)}>
-            <p className={styles.p}>{project.title} | {project.brand} | {project.date}</p>
+            <article className={styles.project}>
+            <p 
+              style={{ color: selectedProject === project ? 'rgba(0, 0, 0, 0.4)' : '' }} 
+              className={styles.p}
+   > 
+              {project.title} | {project.brand} | {project.date}</p>
             </article>
             </ul>
   
