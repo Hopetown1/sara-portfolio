@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 
 import styles from './Section.module.css';
-import Project from './Project';
+import ProjectDetails from './ProjectDetails'; // Assuming your new component
 
 
 const projectsData = [
@@ -10,6 +10,9 @@ const projectsData = [
       title: "Niko",
       brand: "Identity",
       date: "2023",
+      text_1: "Brand identity and custom typography for Niko, a new punk burger restaurant by Chef Sharon Cohen. The rebellious and exaggerated essence   of the restaurant is communicated through a bold and bespoke typeface, Niko Display, that is accompanied of a system of funky illustrations of the dishes.",
+      text_2_line1: "In collaboration with Ark Branding",
+      text_2_line2: "Photography by Haim Yosef",
       images: [
         {src:"Niko/Niko Motion Black.gif", layout: "stacked"},
         {src:"Niko/Niko Sara Barcons.gif", layout: "stacked"},
@@ -94,21 +97,28 @@ const Section = () => {
       <h1 className={styles.h1}>Sara Barcons</h1> 
 
 
-      <ul className={styles.projectList}>
+      <div className={styles.projectList}>
        
           {projectsData.map((project) => (
-            <Project key={project.title} {...project} 
-            
-            />
-        
+            <ul className={styles.projectItem} key={project.title} onClick={() => { 
+              setSelectedProject(project);
+              console.log(selectedProject); 
+          }}>
+            <article className={styles.project} onClick={() => console.log("selected Project title:", project.title)}>
+            <p className={styles.p}>{project.title} | {project.brand} | {project.date}</p>
+            </article>
+            </ul>
+  
           ))}
-        </ul>
+        </div>
       </div>
 
 
       <div className={styles.column_2}>  
      
-   </div>
+      <ProjectDetails project={selectedProject} />
+
+      </div>
 
     </section>
   );

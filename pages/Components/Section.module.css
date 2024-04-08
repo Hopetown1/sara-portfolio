@@ -39,3 +39,17 @@ color:green;
     margin-top: 7vh;
     width: fit-content;
 }
+
+.project{
+    margin:0;
+    padding:0;
+}
+.p{
+    margin:0;
+    width:fit-content;
+    cursor: pointer; 
+}
+.p:hover{
+    color: green;
+}
+
