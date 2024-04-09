@@ -1,33 +1,35 @@
 /* Footer.module.css */
 .footer {
     width: 100%;
-    /* background-color: #ffffff;  Placeholder color */
     display: flex;  /* Two columns */
-    /* justify-content: space-between;  Align columns */
-    /* border: 1px solid red;  Temporary border for inspection */
-    /* align-items: left; */
     padding: 10px;
     box-sizing: border-box; 
     height: 10vh;
+    font-family: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+    /* border: 1px solid red;   */
+    padding: 0 1rem 1rem 1rem;
   }
 
-.h1 {
-font-size: 20px;
-line-height: 18px;  
-font-weight: 400;
-padding: 0;
-margin: 0;
-width: fit-content;
+.links {
+  font-family: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: inherit;
+  padding: 0;
+  margin: 0;
+  width: fit-content;
+  text-decoration: none;
+  color: black;
 }
 
-.h1:not(:first-child) {
+/* .h1:not(:first-child) {
     cursor: pointer 
-}
+} */
 
 .column{
-/* text-align: left; */
-/* align-self: left; */
-/* border: 1px solid red; */
+
 width: 50%;
 padding: 0;
 margin:0;

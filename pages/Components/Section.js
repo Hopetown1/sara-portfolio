@@ -93,24 +93,34 @@ const saraInfo = {
   
 const Section = () => {
     const [selectedProject, setSelectedProject] = useState(null);
-
+    const [showSaraInfo, setShowSaraInfo] = useState(false);
+    const handleSaraInfoClick = () => {
+      setShowSaraInfo(true); // Show Sara Info
+      setSelectedProject(null); // Reset selected project
+  };
+    const handleProjectClick = (project) => {
+      setShowSaraInfo(false);
+      setSelectedProject(project); 
+  };
   return (
     
     <section className={styles.section}>
       
       <div className={styles.column_1}> 
 
-      <h1 className={styles.h1}>Sara Barcons
-      
+      <h1 
+      style={{ color: showSaraInfo === true ? 'rgba(0, 0, 0, 0.4)' : '' }} 
+      className={styles.h1} 
+      onClick={() => handleSaraInfoClick()}>Sara Barcons
       </h1> 
+
+
 
 
       <div className={styles.projectList}>
        
           {projectsData.map((project) => (
-            <ul className={styles.projectItem} key={project.title} onClick={() => { 
-              setSelectedProject(project);
-          }}>
+            <ul className={styles.projectItem} key={project.title} onClick={() => handleProjectClick(project)}> 
             <article className={styles.project}>
             <p 
               style={{ color: selectedProject === project ? 'rgba(0, 0, 0, 0.4)' : '' }} 
@@ -126,8 +136,15 @@ const Section = () => {
 
 
       <div className={styles.column_2}>  
-     
-      <ProjectDetails project={selectedProject} />
+      {showSaraInfo ? (
+        <div>
+           <p className={styles.text_1}>{saraInfo.text_1}</p>
+           <p className={styles.text_2_line1}>{saraInfo.text_2_line1} </p>
+           <p className={styles.text_2_line2}>{saraInfo.text_2_line2}</p>
+        </div> 
+    ) : (
+        selectedProject && <ProjectDetails project={selectedProject} /> 
+    )}
 
       </div>
 

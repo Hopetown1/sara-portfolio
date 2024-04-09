@@ -1,7 +1,7 @@
 .column_wrapper{
-    font-size: 20px;
-    line-height: 18px;  
-    font-weight: 400;
+font-family: inherit;
+  font-weight: inherit;
+  font-style: inherit;
 }
 
 .text_1{
