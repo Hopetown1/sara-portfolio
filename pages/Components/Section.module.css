@@ -88,3 +88,32 @@
     margin:0;
     color: rgba(0, 0, 0, 0.4);
 }
+
+
+@media (max-width: 768px) { 
+    .section {
+        flex-direction: column; /* Stack the columns */
+        
+    }
+
+    .column_1, 
+    .column_2 { 
+        width: 100%; /* Columns take up full width */
+    } 
+    .projectList.show { /* Add this new class */
+        display: block; /* Show the list when the 'show' class  is present */
+    }
+    .projectList {
+        display: none; 
+    }
+    
+    .green_circle { 
+        position: absolute;
+        top: 1rem; 
+        right: 1rem;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background-color: rgb(60, 201, 60);
+    }
+}
