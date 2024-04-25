@@ -1,5 +1,7 @@
 // Section.js
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
+import {client} from '../../sanity/lib/client' // Adjust the path if necessary
+
 
 import styles from './Section.module.css';
 import ProjectDetails from './ProjectDetails'; // Assuming your new component
@@ -7,89 +9,83 @@ import ProjectDetails from './ProjectDetails'; // Assuming your new component
 
 
 
-const projectsData = [
-    {
-      title: "Niko",
-      brand: "Identity",
-      date: "2023",
-      text_1: "Brand identity and custom typography for Niko, a new punk burger restaurant by Chef Sharon Cohen. The rebellious and exaggerated essence   of the restaurant is communicated through a bold and bespoke typeface, Niko Display, that is accompanied of a system of funky illustrations of the dishes.",
-      text_2_line1: "In collaboration with Ark Branding",
-      text_2_line2: "Photography by Haim Yosef",
-      images: [
-        {src:"/Niko/Niko Motion Black.gif", layout: "stacked"},
-        {src:"/Niko/Niko Sara Barcons.gif", layout: "stacked"},
-        {src:"/Niko/Niko.gif", layout: "two per row"},
-        {src:"/Niko/Niko Post 2.png", layout: "two per row"},
-        {src:"/Niko/Niko 3 Post.png", layout: "stacked"}
-      ]
-    },
-    {
-      title: "IDA de ADI",
-      brand: "Campaign",
-      date: "2023",
-    },
-    {
-      title: "Piérdete en Chicago",
-      brand: "Campaign",
-      date: "2023",
-    },
-    {
-      title: "Types per Minute",
-      brand: "Typeface",
-      date: "2023",
-    },
-    {
-      title: "Roam",
-      brand: "Identity",
-      date: "2023",
-    },
-    {
-      title: "Mikro",
-      brand: "Typeface",
-      date: "2022",
-    },
-    {
-      title: "Unter der Erde",
-      brand: "Editorial",
-      date: "2022",
-    },
-    {
-      title: "Bloc a Bloc",
-      brand: "Exhibition",
-      date: "2022",
-    },
-    {
-      title: "Bleach, please",
-      brand: "Editorial",
-      date: "2022",
-    },
-    {
-      title: "Make Your Own Salt",
-      brand: "Campaign",
-      date: "2022",
-    },
-    {
-      title: "MUO (Museo Urbano)",
-      brand: "Art Direction",
-      date: "2021",
-    },
-    {
-      title: "Vertigo",
-      brand: "Typeface",
-      date: "2021",
-    },
-    {
-      title: "Lost Privacy",
-      brand: "Exhibition",
-      date: "2021",
-    },
-  ];
-
-const saraInfo = {
-  text_1: "Sara Barcons is a graphic and type designer based in Munich. Recently graduated from a BA in Design and Innovation in Barcelona, she has experience working in the design industry during her studies.",
-  text_2_line1: "Contact for projects/collaborations",
-  text_2_line2: "sarabarcons@gmail.com"
-}
+// const projectsData = [
+//     {
+//       title: "Niko",
+//       brand: "Identity",
+//       date: "2023",
+//       text_1: "Brand identity and custom typography for Niko, a new punk burger restaurant by Chef Sharon Cohen. The rebellious and exaggerated essence   of the restaurant is communicated through a bold and bespoke typeface, Niko Display, that is accompanied of a system of funky illustrations of the dishes.",
+//       text_2_line1: "In collaboration with Ark Branding",
+//       text_2_line2: "Photography by Haim Yosef",
+//       images: [
+//         {src:"/Niko/Niko Motion Black.gif", layout: "stacked"},
+//         {src:"/Niko/Niko Sara Barcons.gif", layout: "stacked"},
+//         {src:"/Niko/Niko.gif", layout: "two per row"},
+//         {src:"/Niko/Niko Post 2.png", layout: "two per row"},
+//         {src:"/Niko/Niko 3 Post.png", layout: "stacked"}
+//       ]
+//     },
+//     {
+//       title: "IDA de ADI",
+//       brand: "Campaign",
+//       date: "2023",
+//     },
+//     {
+//       title: "Piérdete en Chicago",
+//       brand: "Campaign",
+//       date: "2023",
+//     },
+//     {
+//       title: "Types per Minute",
+//       brand: "Typeface",
+//       date: "2023",
+//     },
+//     {
+//       title: "Roam",
+//       brand: "Identity",
+//       date: "2023",
+//     },
+//     {
+//       title: "Mikro",
+//       brand: "Typeface",
+//       date: "2022",
+//     },
+//     {
+//       title: "Unter der Erde",
+//       brand: "Editorial",
+//       date: "2022",
+//     },
+//     {
+//       title: "Bloc a Bloc",
+//       brand: "Exhibition",
+//       date: "2022",
+//     },
+//     {
+//       title: "Bleach, please",
+//       brand: "Editorial",
+//       date: "2022",
+//     },
+//     {
+//       title: "Make Your Own Salt",
+//       brand: "Campaign",
+//       date: "2022",
+//     },
+//     {
+//       title: "MUO (Museo Urbano)",
+//       brand: "Art Direction",
+//       date: "2021",
+//     },
+//     {
+//       title: "Vertigo",
+//       brand: "Typeface",
+//       date: "2021",
+//     },
+//     {
+//       title: "Lost Privacy",
+//       brand: "Exhibition",
+//       date: "2021",
+//     },
+//   ];
 
 
  
@@ -101,6 +97,27 @@ const Section = () => {
     const [selectedProject, setSelectedProject] = useState(null);
     const [showSaraInfo, setShowSaraInfo] = useState(false);
     const [projectListVisible, setProjectListVisible] = useState(false); 
+
+    const [saraInfo, setSaraInfo] = useState(null);
+    const [projectsData, setProjectsData] = useState([]);
+
+    useEffect(() => {
+      // Fetch the documents in the `sara_info` dataset
+      client
+      .fetch('*[_type == "sara_info"]')
+      .then((data) => {
+        setSaraInfo(data[0]);
+      })
+      .catch(console.error);
+
+      // Fetch the documents in the `projects` dataset
+      client
+      .fetch('*[_type == "project"]')
+      .then((data) => {
+        setProjectsData(data);
+      })
+      .catch(console.error);
+    }, []);
 
     // Define a function to handle click events on Sara's info
     const handleSaraInfoClick = () => {
@@ -116,7 +133,7 @@ const Section = () => {
 
     // Define a function to handle click events on the circle
     const handleCircleClick = () => {
-      setProjectListVisible(!projectListVisible); // Toggle visibility of project list
+      setProjectListVisible(!projectListVisible); // Tonpm uninstall tinacmsgle visibility of project list
       console.log('projectListVisible:', projectListVisible) // Log the current visibility state of project list
     };
 
