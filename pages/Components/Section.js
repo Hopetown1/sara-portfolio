@@ -1,7 +1,7 @@
 // Section.js
 import React, { useState, useEffect} from 'react';
 import {client} from '../../sanity/lib/client' // Adjust the path if necessary
-
+import classNames from 'classnames';
 
 import styles from './Section.module.css';
 import ProjectDetails from './ProjectDetails'; // Assuming your new component
@@ -40,7 +40,7 @@ const Section = () => {
       client
       .fetch('*[_type == "appearance"]')
       .then((data) => {
-        console.log('Fetched appearance data:', data);
+        // console.log('Fetched appearance data:', data);
         setAppearance(data[0]);
         document.documentElement.style.setProperty('--appearance-highlight-color', data[0].highlight_color);
       })
@@ -70,14 +70,15 @@ const Section = () => {
       <section className={styles.section} style={{ fontSize: appearance && appearance.font_size }}>
         <div className={styles.green_circle} onClick={handleCircleClick}></div>
         <div className={styles.column_1}> 
-          <h1 
+          {/* <h1 
         className={styles.h1} 
             style={{ 
-              // ':hover': { color: appearance && appearance.highlight_color},
               color: showSaraInfo === true ? 'rgba(0, 0, 0, 0.4)' : ''
             }} 
             onClick={() => handleSaraInfoClick()}>Sara Barcons
-          </h1> 
+          </h1>  */}
+          <h1 className={classNames(styles.h1, { [styles.faded]: showSaraInfo })} onClick={() => handleSaraInfoClick()}>Sara Barcons </h1> 
+
           <div className={`${styles.projectList} ${projectListVisible ? 'show' : ''}`}>
             {projectsData.map((project) => (
               <ul className={styles.projectItem} key={project.title} onClick={() => handleProjectClick(project)}> 
