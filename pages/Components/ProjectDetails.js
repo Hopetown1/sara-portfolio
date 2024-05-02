@@ -1,10 +1,4 @@
-/**
- * Renders the details of a project.
- *
- * @param {Object} props - The component props.
- * @param {Object} props.project - The project data.
- * @returns {JSX.Element} The rendered project details.
- */
+
 // ProjectDetails.js
 import React from 'react';
 import styles from './ProjectDetails.module.css';
@@ -41,7 +35,7 @@ const ProjectDetails = ({ project }) => {
 <div className={styles.imageContainer}>
     {project.images.map((image, index) => {
          const imageUrl = builder.image(image.image).url() // Generate the URL for the image
-         console.log("Image URL:", imageUrl) // Log the URL
+
          return (
             // eslint-disable-next-line @next/next/no-img-element
             <img

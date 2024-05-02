@@ -1,4 +1,5 @@
-// Inside schemas/schema.js 
+// import { init } from "next/dist/compiled/webpack/webpack"
+
 export const schema = [
   {
     name: 'sara_info',
@@ -13,7 +14,7 @@ export const schema = [
     ],
   },
 ]
-// Inside schemas/schema.js 
+
 export const schema_2 = [
   {
     name: 'project',
@@ -52,3 +53,17 @@ export const schema_2 = [
   }
 ]
 
+//another schema for editing colours, fonts and font sizes
+export const schema_3 = [
+  {
+    name: 'appearance',
+    title: 'Appearance',
+    type: 'document',
+    fields: [
+      { name: 'title', title: 'Title', type: 'string', isTitle: true, initialValue: 'Appearance' , readOnly: true},
+      { name: 'font', title: 'Font', type: 'string' },
+      { name: 'font_size', title: 'Font Size in Pixels', type: 'number' },
+      { name: 'highlight_color', title: 'Highlight Color', type: 'string' },
+    ],
+  },
+]

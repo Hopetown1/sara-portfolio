@@ -9,88 +9,6 @@ import ProjectDetails from './ProjectDetails'; // Assuming your new component
 
 
 
-// const projectsData = [
-//     {
-//       title: "Niko",
-//       brand: "Identity",
-//       date: "2023",
-//       text_1: "Brand identity and custom typography for Niko, a new punk burger restaurant by Chef Sharon Cohen. The rebellious and exaggerated essence   of the restaurant is communicated through a bold and bespoke typeface, Niko Display, that is accompanied of a system of funky illustrations of the dishes.",
-//       text_2_line1: "In collaboration with Ark Branding",
-//       text_2_line2: "Photography by Haim Yosef",
-//       images: [
-//         {src:"/Niko/Niko Motion Black.gif", layout: "stacked"},
-//         {src:"/Niko/Niko Sara Barcons.gif", layout: "stacked"},
-//         {src:"/Niko/Niko.gif", layout: "two per row"},
-//         {src:"/Niko/Niko Post 2.png", layout: "two per row"},
-//         {src:"/Niko/Niko 3 Post.png", layout: "stacked"}
-//       ]
-//     },
-//     {
-//       title: "IDA de ADI",
-//       brand: "Campaign",
-//       date: "2023",
-//     },
-//     {
-//       title: "Piérdete en Chicago",
-//       brand: "Campaign",
-//       date: "2023",
-//     },
-//     {
-//       title: "Types per Minute",
-//       brand: "Typeface",
-//       date: "2023",
-//     },
-//     {
-//       title: "Roam",
-//       brand: "Identity",
-//       date: "2023",
-//     },
-//     {
-//       title: "Mikro",
-//       brand: "Typeface",
-//       date: "2022",
-//     },
-//     {
-//       title: "Unter der Erde",
-//       brand: "Editorial",
-//       date: "2022",
-//     },
-//     {
-//       title: "Bloc a Bloc",
-//       brand: "Exhibition",
-//       date: "2022",
-//     },
-//     {
-//       title: "Bleach, please",
-//       brand: "Editorial",
-//       date: "2022",
-//     },
-//     {
-//       title: "Make Your Own Salt",
-//       brand: "Campaign",
-//       date: "2022",
-//     },
-//     {
-//       title: "MUO (Museo Urbano)",
-//       brand: "Art Direction",
-//       date: "2021",
-//     },
-//     {
-//       title: "Vertigo",
-//       brand: "Typeface",
-//       date: "2021",
-//     },
-//     {
-//       title: "Lost Privacy",
-//       brand: "Exhibition",
-//       date: "2021",
-//     },
-//   ];
-
-
- 
-
-  
 // Define the Section component
 const Section = () => {
     // Define state variables for selected project, visibility of Sara's info, and project list
@@ -100,7 +18,7 @@ const Section = () => {
 
     const [saraInfo, setSaraInfo] = useState(null);
     const [projectsData, setProjectsData] = useState([]);
-
+    const [appearance, setAppearance] = useState(null);
     useEffect(() => {
       // Fetch the documents in the `sara_info` dataset
       client
@@ -109,12 +27,21 @@ const Section = () => {
         setSaraInfo(data[0]);
       })
       .catch(console.error);
-
+      // console.log('saraInfo:', saraInfo)
       // Fetch the documents in the `projects` dataset
       client
       .fetch('*[_type == "project"]')
       .then((data) => {
         setProjectsData(data);
+      })
+      .catch(console.error)
+      // console.log('projectsData:', projectsData)
+      // Fetch the documents in the `appearance` dataset
+      client
+      .fetch('*[_type == "appearance"]')
+      .then((data) => {
+        // console.log('Fetched appearance data:', data);
+        setAppearance(data[0]);
       })
       .catch(console.error);
     }, []);
@@ -139,11 +66,13 @@ const Section = () => {
 
     // Return the JSX to render for this component
     return (
-      <section className={styles.section}>
+      <section className={styles.section} style={{ fontSize: appearance && appearance.font_size }}>
         <div className={styles.green_circle} onClick={handleCircleClick}></div>
         <div className={styles.column_1}> 
           <h1 
-            style={{ color: showSaraInfo === true ? 'rgba(0, 0, 0, 0.4)' : '' }} 
+            style={{ 
+              color: showSaraInfo === true ? 'rgba(0, 0, 0, 0.4)' : ''
+          }} 
             className={styles.h1} 
             onClick={() => handleSaraInfoClick()}>Sara Barcons
           </h1> 
@@ -167,6 +96,7 @@ const Section = () => {
               <p className={styles.text_1}>{saraInfo.text_1}</p>
               <p className={styles.text_2_line1}>{saraInfo.text_2_line1} </p>
               <p className={styles.text_2_line2}>{saraInfo.text_2_line2}</p>
+
             </div> 
           ) : (
             selectedProject && <ProjectDetails project={selectedProject} /> 
