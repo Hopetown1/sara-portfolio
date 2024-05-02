@@ -2,13 +2,19 @@ html,
 body{
   padding: 0;
   margin: 0;
-  background-color: #EDEDED;
+  background-color: var(--backgorund-color);
   font-family: "neue-haas-grotesk-text", sans-serif; 
   font-style: normal;
   font-size: 17px; 
-
+  /* #EDEDED; */
 }
 ul{
   padding:0;
   margin: 0;
 }
+:root {
+  --highlight-color: var(--appearance-highlight-color);
+  --font-size: var(--appearance-font-size);
+  --backgorund-color: var(--appearance-background-color);
+}
+

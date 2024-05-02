@@ -1,3 +1,5 @@
+
+
 .section {
     width: 100%;
     /* background-color: #ffffff;  Placeholder color */
@@ -11,7 +13,7 @@
     font-family: inherit;
     font-weight: inherit;
     font-style: inherit;
-    /* font-size: var(--appearance-font-size); */
+    font-size: var(--font-size);
     /* border: 1px solid red;   */
     /* font-size: 1.5rem; */
   }
@@ -24,12 +26,11 @@
     font-style: inherit;
     font-size: inherit;
     /* color: blue; */
-     font-size: inherit;
+    font-size: inherit;
     padding: 0;
     margin: 0;
     width: fit-content;
     cursor: pointer;
-    --highlight-color: var(--appearance-highlight-color); 
 }
 
 .column_1{
@@ -73,7 +74,8 @@
 }
 .projectList .p:hover, 
 .projectList .p.faded-text:hover { 
-    color: rgb(60, 201, 60);
+    /* color: rgb(60, 201, 60); */
+    color: var(--highlight-color); 
 }
 .text_1{
     margin-top:calc(7vh + 18px);
@@ -118,5 +120,6 @@
         height: 15px;
         border-radius: 50%;
         background-color: rgb(60, 201, 60);
+
     }
 }

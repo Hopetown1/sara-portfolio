@@ -46,6 +46,7 @@ export const schema_2 = [
                 list: [
                   { title: 'Stacked', value: 'stacked' },
                   { title: 'Two per row', value: 'two per row' },
+                  { title: 'Three per row', value: 'three per row' },
                 ],
               },
             },
@@ -67,6 +68,7 @@ export const schema_3 = [
       { name: 'font', title: 'Font', type: 'string' },
       { name: 'font_size', title: 'Font Size in Pixels', type: 'number' },
       { name: 'highlight_color', title: 'Highlight Color', type: 'string' },
+      {name: 'background_color', title: 'Background Color', type: 'string'}
     ],
   },
 ]

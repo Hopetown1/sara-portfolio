@@ -43,6 +43,8 @@ const Section = () => {
         // console.log('Fetched appearance data:', data);
         setAppearance(data[0]);
         document.documentElement.style.setProperty('--appearance-highlight-color', data[0].highlight_color);
+        document.documentElement.style.setProperty('--appearance-font-size', data[0].font_size + 'px' );
+        document.documentElement.style.setProperty('--appearance-background-color', data[0].background_color);
       })
       .catch(console.error);
     }, []);
@@ -67,7 +69,7 @@ const Section = () => {
 
     // Return the JSX to render for this component
     return (
-      <section className={styles.section} style={{ fontSize: appearance && appearance.font_size }}>
+      <section className={styles.section}>
         <div className={styles.green_circle} onClick={handleCircleClick}></div>
         <div className={styles.column_1}> 
 

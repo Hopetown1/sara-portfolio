@@ -45,7 +45,9 @@ const ProjectDetails = ({ project }) => {
                className={
                   image.layout === "stacked" 
                      ? styles.stackedImage 
-                     : styles.twoPerRowImage 
+                     : image.layout === "two per row"
+                        ? styles.twoPerRowImage
+                        : styles.threePerRowImage
                }
             />
          )

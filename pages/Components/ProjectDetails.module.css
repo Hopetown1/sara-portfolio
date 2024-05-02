@@ -44,3 +44,7 @@ font-family: inherit;
 
   }
   
+  .threePerRowImage {
+    width: 31%; /* Ensure there's enough space for the gap */
+    margin-top: 1.5rem;
+  }
