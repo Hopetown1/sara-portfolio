@@ -11,7 +11,7 @@
     font-family: inherit;
     font-weight: inherit;
     font-style: inherit;
-    font-size: inherit;
+    font-size: var(--appearance-font-size);
     /* border: 1px solid red;   */
     /* font-size: 1.5rem; */
   }
@@ -22,12 +22,14 @@
     font-family: inherit;
     font-weight: inherit;
     font-style: inherit;
+    font-size: inherit;
     /* color: blue; */
      font-size: inherit;
     padding: 0;
     margin: 0;
     width: fit-content;
     cursor: pointer;
+    --highlight-color: var(--appearance-highlight-color); 
 }
 
 .column_1{
@@ -50,7 +52,8 @@
 }
   
 .h1:hover {
-    color:#3cc93c;
+    /* color:#3cc93c; */
+    color: var(--highlight-color);
 }
 
 .projectList{

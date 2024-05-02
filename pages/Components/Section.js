@@ -40,8 +40,9 @@ const Section = () => {
       client
       .fetch('*[_type == "appearance"]')
       .then((data) => {
-        // console.log('Fetched appearance data:', data);
+        console.log('Fetched appearance data:', data);
         setAppearance(data[0]);
+        document.documentElement.style.setProperty('--appearance-highlight-color', data[0].highlight_color);
       })
       .catch(console.error);
     }, []);
@@ -70,10 +71,11 @@ const Section = () => {
         <div className={styles.green_circle} onClick={handleCircleClick}></div>
         <div className={styles.column_1}> 
           <h1 
+        className={styles.h1} 
             style={{ 
+              // ':hover': { color: appearance && appearance.highlight_color},
               color: showSaraInfo === true ? 'rgba(0, 0, 0, 0.4)' : ''
-          }} 
-            className={styles.h1} 
+            }} 
             onClick={() => handleSaraInfoClick()}>Sara Barcons
           </h1> 
           <div className={`${styles.projectList} ${projectListVisible ? 'show' : ''}`}>

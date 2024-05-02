@@ -11,7 +11,7 @@ const ProjectDetails = ({ project }) => {
   if (!project) {
     return <div>Nothing Currently Selected </div>;
    } 
-    console.log("Images Array:", project.images); // Log the data
+   //  console.log("Images Array:", project.images); // Log the data
   return (
     <div className={styles.column_wrapper}>
   {project.text_1 && ( 
