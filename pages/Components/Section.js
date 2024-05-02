@@ -70,13 +70,7 @@ const Section = () => {
       <section className={styles.section} style={{ fontSize: appearance && appearance.font_size }}>
         <div className={styles.green_circle} onClick={handleCircleClick}></div>
         <div className={styles.column_1}> 
-          {/* <h1 
-        className={styles.h1} 
-            style={{ 
-              color: showSaraInfo === true ? 'rgba(0, 0, 0, 0.4)' : ''
-            }} 
-            onClick={() => handleSaraInfoClick()}>Sara Barcons
-          </h1>  */}
+
           <h1 className={classNames(styles.h1, { [styles.faded]: showSaraInfo })} onClick={() => handleSaraInfoClick()}>Sara Barcons </h1> 
 
           <div className={`${styles.projectList} ${projectListVisible ? 'show' : ''}`}>
