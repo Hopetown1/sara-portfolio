@@ -2,13 +2,16 @@
 font-family: inherit;
   font-weight: inherit;
   font-style: inherit;
+  padding-top: 7vh;
 }
 
 .text_1{
-    margin-top:calc(7vh + 18px);
+    /* margin-top: calc(7vh + 18px); */
     padding: 0;
     margin-bottom: 0;
 }
+
+
 .text_2_line1{
     padding:0;
     margin-top: 1rem;

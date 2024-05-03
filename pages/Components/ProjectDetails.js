@@ -18,9 +18,16 @@ const ProjectDetails = ({ project }) => {
          {/* Render the first text block */}
          {project.text_1 && ( 
             <BlockContent 
+               className={styles.text_1} // Add className prop with styles.text_1
                blocks={project.text_1} 
                projectId="lspp38nx" 
                dataset="sara_info"
+               style={{ 
+                  marginTop: 'calc(7vh + 18px)',
+                  padding: 0,
+                  marginBottom: 0 ,
+                  display: 'block'
+                }}
             /> 
          )}
 
