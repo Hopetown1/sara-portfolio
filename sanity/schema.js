@@ -27,7 +27,7 @@ export const schema_2 = [
       { name: 'title', title: 'Title', type: 'string', isTitle: true},
       { name: 'brand', title: 'Brand', type: 'string' },
       { name: 'date', title: 'Date', type: 'string' },
-      { name: 'text_1', title: 'Text 1', type: 'text' },
+      { name: 'text_1', title: 'Text 1', type: 'array' , of: [{type: 'block'}] },
       { name: 'text_2_line1', title: 'Text 2 Line 1', type: 'string' },
       { name: 'text_2_line2', title: 'Text 2 Line 2', type: 'string' },
       { name: 'text_2_line3', title: 'Text 2 Line 3', type: 'string' },

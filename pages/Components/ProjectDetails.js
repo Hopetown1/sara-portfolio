@@ -4,6 +4,7 @@ import React from 'react';
 import styles from './ProjectDetails.module.css';
 import imageUrlBuilder from '@sanity/image-url'
 import {client} from '../../sanity/lib/client' // Adjust the path if necessary
+import BlockContent from '@sanity/block-content-to-react';
 
 const builder = imageUrlBuilder(client)
 
@@ -14,8 +15,15 @@ const ProjectDetails = ({ project }) => {
    //  console.log("Images Array:", project.images); // Log the data
   return (
     <div className={styles.column_wrapper}>
-  {project.text_1 && ( 
+  {/* {project.text_1 && ( 
      <p className={styles.text_1}>{project.text_1}</p> 
+  )} */}
+  {project.text_1 && ( 
+     <BlockContent 
+       blocks={project.text_1} 
+       projectId="lspp38nx" 
+       dataset="sara_info"
+     /> 
   )}
   {project.text_2_line1 && ( 
      <p className={styles.text_2_line1}>
