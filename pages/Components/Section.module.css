@@ -85,13 +85,19 @@
 @media (max-width: 768px) { 
     .section {
         flex-direction: column;
+        padding: 0.5rem;
     }
     
     .column_1, 
     .column_2 { 
         width: 100%;
     } 
-    
+    .text_1 {
+        margin-top: 1rem;
+    }
+    .text_2_line1{
+        margin-top: 1rem;
+    }
     .projectList.show {
         display: block;
     }

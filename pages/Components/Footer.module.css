@@ -2,7 +2,7 @@
 .footer {
     width: 100%;
     display: flex;  /* Two columns */
-    padding: 10px;
+    /* padding: 10px; */
     box-sizing: border-box; 
     height: 10vh;
     font-family: inherit;
@@ -10,6 +10,7 @@
     font-style: inherit;
     /* border: 1px solid red;   */
     padding: 0 1rem 1rem 1rem;
+    font-size: var(--font-size);
   }
 
 .links {
@@ -36,3 +37,13 @@ margin:0;
 display: flex;
 flex-direction: column
 }
+
+@media (max-width: 768px) {
+   .links {
+    font-size: 15px;
+   }
+   .footer {
+    height: auto;
+    padding: 0.5rem;
+   }
+  }

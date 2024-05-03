@@ -38,16 +38,16 @@ font-family: inherit;
   .stackedImage {
     width: 100%; 
 
-    margin-top: 1.5rem; /* Adjust the margin as needed */
+    margin-top: 1rem; /* Adjust the margin as needed */
   }
   
   .twoPerRowImage {
-    width: 48%; /* Ensure there's enough space for the gap */
-    margin-top: 1.5rem;
+    width: calc(50% - 0.5rem); /* Ensure there's enough space for the gap */
+    margin-top: 1rem;
 
   }
   
   .threePerRowImage {
-    width: 31%; /* Ensure there's enough space for the gap */
-    margin-top: 1.5rem;
+    width: calc(33% - 0.5rem); /* Ensure there's enough space for the gap */
+    margin-top: 1rem;
   }
