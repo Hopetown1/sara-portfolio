@@ -107,6 +107,7 @@
         width: 15px;
         height: 15px;
         border-radius: 50%;
-        background-color: rgb(60, 201, 60);
+        background-color: var(--highlight-color);
+        cursor: pointer;
     }
 }

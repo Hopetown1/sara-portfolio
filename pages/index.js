@@ -31,7 +31,7 @@ export default function Home() {
       <Head>
         <title>Saras Portfolio</title> 
         <meta name="description" content="Sara's Portfolio" /> 
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/FAVICON_sarabarcons 2.png" />
         {/* <link rel="stylesheet" href="https://use.typekit.net/cyz5kzd.css"></link> */}
 
         {/* IS slower because stylesheet is not in _document.js */}
