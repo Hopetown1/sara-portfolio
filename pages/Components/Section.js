@@ -30,10 +30,10 @@ const Section = () => {
       // console.log('saraInfo:', saraInfo)
       // Fetch the documents in the `projects` dataset
       client
-      .fetch('*[_type == "project"]')
+      .fetch('*[_type == "project"] | order(order asc)')
       .then((data) => {
         setProjectsData(data);
-      })
+      }) 
       .catch(console.error)
       // console.log('projectsData:', projectsData)
       // Fetch the documents in the `appearance` dataset
@@ -95,6 +95,7 @@ const Section = () => {
               <p className={styles.text_1}>{saraInfo.text_1}</p>
               <p className={styles.text_2_line1}>{saraInfo.text_2_line1} </p>
               <p className={styles.text_2_line2}>{saraInfo.text_2_line2}</p>
+              
 
             </div> 
           ) : (

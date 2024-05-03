@@ -32,8 +32,11 @@ const ProjectDetails = ({ project }) => {
     {project.text_2_line3}
      </p> 
   )}
+   
+
+
 <div className={styles.imageContainer}>
-    {project.images.map((image, index) => {
+   {project.images && project.images.map((image, index) => {
          const imageUrl = builder.image(image.image).url() // Generate the URL for the image
 
          return (

@@ -7,9 +7,9 @@ export const schema = [
     type: 'document',
     fields: [
       {name: 'name', title: 'Name', type: 'string', readOnly: true, initialValue: 'Sara Barcons', isTitle: true},
-      { name: 'text_1', title: 'Text 1', type: 'text'},
-      { name: 'text_2_line1', title: 'Text 2 Line 1', type: 'string' },
-      { name: 'text_2_line2', title: 'Text 2 Line 2', type: 'string' },
+      {name: 'text_1', title: 'Text 1', type: 'text'},
+      {name: 'text_2_line1', title: 'Text 2 Line 1', type: 'string' },
+      {name: 'text_2_line2', title: 'Text 2 Line 2', type: 'string' },
       {name: 'phone', title: 'Phone', type: 'string', initialValue: '(+34) 622318871'},
       {name: 'email', title: 'Email', type: 'string', initialValue: 'sarabarcons@gmail.com'},
       {name: 'instagram', title: 'Instagram', type: 'string', initialValue: 'https://www.instagram.com/sarabarcons/'},
@@ -30,6 +30,8 @@ export const schema_2 = [
       { name: 'text_1', title: 'Text 1', type: 'text' },
       { name: 'text_2_line1', title: 'Text 2 Line 1', type: 'string' },
       { name: 'text_2_line2', title: 'Text 2 Line 2', type: 'string' },
+      { name: 'text_2_line3', title: 'Text 2 Line 3', type: 'string' },
+      { name: 'order', title: 'Order', type: 'number' }, // New field for order
       {
         name: 'images',
         title: 'Images',
