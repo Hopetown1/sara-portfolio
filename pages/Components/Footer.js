@@ -1,12 +1,7 @@
 // Footer.js
-import React, {useEffect, useState} from 'react';
-import styles from './Footer.module.css';
-import {client} from '../../sanity/lib/client' // Adjust the path if necessary
-
 const Footer = () => {
 
   const [saraInfo, setSaraInfo] = useState(null);
-
   const [appearance, setAppearance] = useState(null);
   useEffect(() => {
     // Fetch the documents in the `sara_info` dataset
@@ -46,5 +41,7 @@ const Footer = () => {
     </footer>
   );
 };
-
 export default Footer;
+import React, {useEffect, useState} from 'react';
+import styles from './Footer.module.css';
+import {client} from '../../sanity/lib/client' // Adjust the path if necessary

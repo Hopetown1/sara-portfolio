@@ -13,9 +13,7 @@ export default function Home() {
     client
       .fetch('*[_type == "appearance"]')
       .then((data) => {
-        // console.log('Fetched appearance data:', data);
         setAppearance(data[0]);
-        // console.log('Font Type:', data[0].font);
         setLoading(false);
       })
       .catch((error) => {
@@ -24,9 +22,9 @@ export default function Home() {
       });
   }, []);
 
-  // if (loading) {
-  //   return <div>Loading...</div>;
-  // }
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <>
@@ -47,35 +45,3 @@ export default function Home() {
     </>
   );
 }
-
-// export default function Home() {
-//     const [appearance, setAppearance] = useState(null);
-//   useEffect (() => {
-//   client
-//   .fetch('*[_type == "appearance"]')
-//   .then((data) => {
-//     console.log('Fetched appearance data:', data);
-//     setAppearance(data[0]);
-//     console.log('Font Type:', data[0].font);
-
-//   })
-//   .catch(console.error);
-// }, []);
-//   return (
-//     <>
-//       <Head>
-//         <title>Saras Portfolio</title> 
-//         <meta name="description" content="Sara's Portfolio" /> 
-//         <link rel="icon" href="/favicon.ico" />
-//         {/* <link rel="stylesheet" href="https://use.typekit.net/cyz5kzd.css"></link> */}
-//         <link rel="stylesheet" href={appearance.font} />
-//       </Head>
-
-//       <mains style={{ backgroundColor: '#7414140' }}>
-//         <Section />
-//         <Footer /> 
-//       </mains>
-  
-//     </>
-//   );
-// }
