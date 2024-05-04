@@ -40,10 +40,13 @@ flex-direction: column
 
 @media (max-width: 768px) {
    .links {
-    font-size: 15px;
+    font-size: 14px;
+    align-self: bottom;
    }
-   .footer {
-    height: auto;
-    padding: 0.5rem;
-   }
+  
+  .footer {
+   height: auto;
+   padding: 0rem 0.5rem 0.5rem 0.5rem;
+   /* align-items: flex-end; */
+  }
   }

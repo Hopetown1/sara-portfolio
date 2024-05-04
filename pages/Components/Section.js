@@ -9,6 +9,7 @@ import classNames from 'classnames';
 
 import styles from './Section.module.css';
 import ProjectDetails from './ProjectDetails';
+import { set } from 'sanity';
 
 /**
  * Section component that displays Sara's portfolio section.
@@ -59,6 +60,7 @@ const Section = () => {
     const handleSaraInfoClick = () => {
       setShowSaraInfo(true);
       setSelectedProject(null);
+      setProjectListVisible(false);
     };
 
     /**
@@ -68,22 +70,25 @@ const Section = () => {
     const handleProjectClick = (project) => {
       setShowSaraInfo(false);
       setSelectedProject(project);
+      setProjectListVisible(false);
     };
 
     /**
      * Handles click events on the circle.
      */
     const handleCircleClick = () => {
-      setProjectListVisible(!projectListVisible);
-      console.log('projectListVisible:', projectListVisible);
+      setShowSaraInfo(false);
+      setSelectedProject(null);
+      setProjectListVisible(true);
+      // console.log('projectListVisible:', projectListVisible);
     };
 
     return (
       <section className={styles.section}>
-        <div className={styles.green_circle} onClick={handleCircleClick}></div>
+        {!projectListVisible && <div className={styles.green_circle} onClick={handleCircleClick}></div> }
         <div className={styles.column_1}> 
           <h1 className={classNames(styles.h1, { [styles.faded]: showSaraInfo})} onClick={() => handleSaraInfoClick()}>Sara Barcons </h1> 
-          <div className={`${styles.projectList} ${projectListVisible ? 'show' : ''}`}>
+          <div className={`${styles.projectList} ${projectListVisible ? styles.show : ''}`}>
             {projectsData.map((project) => (
               <ul className={styles.projectItem} key={project.title} onClick={() => handleProjectClick(project)}> 
                 <article className={styles.project}>
