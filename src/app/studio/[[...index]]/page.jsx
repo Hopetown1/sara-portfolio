@@ -11,7 +11,13 @@
 
 import { NextStudio } from 'next-sanity/studio'
 import config from '../../../../sanity.config'
+import RootLayout from '../../layout.jsx';  // If layout.jsx is directly in the app directory
+
 
 export default function StudioPage() {
   return <NextStudio config={config} />
 }
+
+StudioPage.getLayout = function getLayout(page) {
+  return <RootLayout>{page}</RootLayout>;
+};
