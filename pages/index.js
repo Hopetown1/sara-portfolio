@@ -32,6 +32,9 @@ export default function Home() {
         <title>Sarabarcons.xyz</title> 
         <meta name="description" content="Sara's Portfolio" /> 
         <link rel="icon" href="/FAVICON_sarabarcons 2.png" />
+        <link rel="preconnect" href="https://lspp38nx.apicdn.sanity.io"/>
+        <link rel="dns-prefetch" href="https://lspp38nx.apicdn.sanity.io"/>
+
         {/* <link rel="stylesheet" href="https://use.typekit.net/cyz5kzd.css"></link> */}
 
         {/* IS slower because stylesheet is not in _document.js */}
