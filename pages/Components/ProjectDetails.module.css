@@ -33,23 +33,26 @@ font-family: inherit;
     display: flex; 
     flex-wrap: wrap;
     justify-content: space-between; /* Distribute space between images */
+    /* position: relative; */
   }
   
   .stackedImage {
     width: 100%; 
-
+    position: relative;
     margin-top: 1rem; /* Adjust the margin as needed */
+    
   }
   
   .twoPerRowImage {
     width: calc(50% - 0.5rem); /* Ensure there's enough space for the gap */
     margin-top: 1rem;
-
+    position: relative;
   }
   
   .threePerRowImage {
     width: calc(33% - 0.5rem); /* Ensure there's enough space for the gap */
     margin-top: 1rem;
+    position: relative;
   }
 
   @media (max-width: 768px) {

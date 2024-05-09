@@ -1,6 +1,6 @@
 
 // ProjectDetails.js
-
+import Image from 'next/image';
 
 // Create an instance of the image URL builder using the Sanity client
 const builder = imageUrlBuilder(client)
@@ -55,13 +55,45 @@ const ProjectDetails = ({ project }) => {
          {/* Render the image container */}
          <div className={styles.imageContainer}>
             {/* Map through the images and render each one */}
+
+            
             {project.images && project.images.map((image, index) => {
+               // Generate the URL for the image
+               const imageUrl = builder.image(image.image).url()
+               return (
+                  <div
+                     key={image._key}
+                     className={
+                     // Set the appropriate CSS class based on the image layout
+                     image.layout === "stacked" 
+                        ? styles.stackedImage 
+                        : image.layout === "two per row"
+                           ? styles.twoPerRowImage
+                           : styles.threePerRowImage
+                     }
+                  >
+                     <Image
+                     src={imageUrl}
+                      style={{ height: '100%', width: '100%' }}
+                      alt={project.title}
+                     //  fill
+                      sizes='(max-width: 600px) 500px, 100vw'
+                     strategy="responsive"
+                     width={400}
+                     height={400}
+                     />
+                  </div>
+               )
+               })}
+
+            {/* {project.images && project.images.map((image, index) => {
                // Generate the URL for the image
                const imageUrl = builder.image(image.image).url()
                return (
                   // Render the image element
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img
+                  
+                  <Image
                      src={imageUrl}
                      alt={project.title}
                      key={image._key}
@@ -73,9 +105,12 @@ const ProjectDetails = ({ project }) => {
                               ? styles.twoPerRowImage
                               : styles.threePerRowImage
                      }
+                     fill
+                     sizes='(max-width: 600px) 500px, 600px'
+                     
                   />
                )
-            })}
+            })} */}
          </div>
       </div> 
    );
