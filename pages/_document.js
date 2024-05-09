@@ -7,7 +7,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        {/* <link rel="stylesheet" href="https://use.typekit.net/cyz5kzd.css" /> */}
+        <link rel="stylesheet" href="https://use.typekit.net/cyz5kzd.css" />
 
         {/* {appearance && <link rel="stylesheet" href={`${appearance.font}`} />} */}
       </Head>

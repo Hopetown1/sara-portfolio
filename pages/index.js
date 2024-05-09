@@ -38,7 +38,7 @@ export default function Home() {
         {/* <link rel="stylesheet" href="https://use.typekit.net/cyz5kzd.css"></link> */}
 
         {/* IS slower because stylesheet is not in _document.js */}
-        {appearance && <link rel="stylesheet" href={`${appearance.font}`} />}
+        {/* {appearance && <link rel="stylesheet" href={`${appearance.font}`} />} */}
       </Head>
 
       <main style={{ backgroundColor: '#7414140' }}>
