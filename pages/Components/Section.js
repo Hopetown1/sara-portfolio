@@ -25,6 +25,14 @@ const Section = () => {
     const [projectsData, setProjectsData] = useState([]);
     const [appearance, setAppearance] = useState(null);
 
+    const column2Ref = React.useRef(null);
+
+    React.useEffect(() => {
+      if (column2Ref.current) {
+        column2Ref.current.scrollTop = 0;
+      }
+    }, [selectedProject]);
+
     useEffect(() => {
       // Fetch the documents in the `sara_info` dataset
       client
@@ -102,7 +110,7 @@ const Section = () => {
             ))}
           </div>
         </div>
-        <div className={styles.column_2}>  
+        <div className={styles.column_2} ref={column2Ref}>  
           {showSaraInfo ? (
             <div>
               <p className={styles.text_1}>{saraInfo.text_1}</p>
