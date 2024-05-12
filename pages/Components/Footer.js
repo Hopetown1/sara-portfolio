@@ -33,9 +33,9 @@ const Footer = () => {
         {saraInfo && ( 
           <div className={styles.column}>
             <h1 className={styles.links}>{saraInfo.phone}</h1>
-            <a href={`mailto:${saraInfo.email}`} className={styles.links}>{saraInfo.email}</a> 
-            <a href={saraInfo.instagram} target="_blank" className={styles.links}>Instagram</a>
-            <a href={saraInfo.linkedin} target="_blank" className={styles.links}>LinkedIn</a>
+            <a href={`mailto:${saraInfo.email}`} className={styles.links_green}>{saraInfo.email}</a> 
+            <a href={saraInfo.instagram} target="_blank" className={styles.links_green}>Instagram</a>
+            <a href={saraInfo.linkedin} target="_blank" className={styles.links_green}>LinkedIn</a>
           </div>
         )}
     </footer>

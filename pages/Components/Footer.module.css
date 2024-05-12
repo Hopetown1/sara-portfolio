@@ -24,6 +24,21 @@
   text-decoration: none;
   color: black;
 }
+.links_green {
+  font-family: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: inherit;
+  padding: 0;
+  margin: 0;
+  width: fit-content;
+  text-decoration: none;
+  color: black;
+}
+
+.links_green:hover{
+  color: var(--highlight-color);
+}
 
 /* .h1:not(:first-child) {
     cursor: pointer 
@@ -43,7 +58,10 @@ flex-direction: column
     font-size: 14px;
     align-self: bottom;
    }
-  
+   .links_green {
+    font-size: 14px;
+    align-self: bottom;
+   }
   .footer {
    height: auto;
    padding: 0rem 0.5rem 0.5rem 0.5rem;

@@ -3,9 +3,11 @@ body{
   padding: 0;
   margin: 0;
   background-color: var(--backgorund-color);
-  font-family: "neue-haas-grotesk-text"; 
+  font-family: "neue-haas-grotesk-text", sans-serif; 
+  font-weight: 500;
   font-style: normal;
-  font-size: 17px; 
+  /* font-size: 17px;  */
+  line-height: 20px;
   /* #EDEDED; */
 }
 ul{

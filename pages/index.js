@@ -29,7 +29,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Sarabarcons.xyz</title> 
+        <title>Sara Barcons</title> 
         <meta name="description" content="Sara's Portfolio" /> 
         <link rel="icon" href="/FAVICON_sarabarcons 2.png" />
         <link rel="preconnect" href="https://lspp38nx.apicdn.sanity.io"/>
