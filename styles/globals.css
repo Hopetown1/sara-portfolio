@@ -24,4 +24,8 @@ ul{
   :root {
     --font-size: 14px;
   }
+  html,
+  body{
+    line-height: 15px;
+  }
 }
