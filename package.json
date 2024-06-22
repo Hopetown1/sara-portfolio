@@ -21,7 +21,8 @@
     "react": "18",
     "react-dom": "18",
     "sanity": "^3.39.0",
-    "styled-components": "^6.1.8"
+    "styled-components": "^6.1.8",
+    "ws": ">=8.17.1"
   },
   "devDependencies": {
     "@tinacms/cli": "^1.5.43",
