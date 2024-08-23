@@ -63,7 +63,7 @@ flex-direction: column
     align-self: bottom;
    }
   .footer {
-   height: 10svh;
+   height: auto;
    padding: 0rem 0.5rem 0.5rem 0.5rem;
    /* align-items: flex-end; */
   }
