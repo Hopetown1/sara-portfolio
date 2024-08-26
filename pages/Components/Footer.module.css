@@ -11,6 +11,8 @@
     /* border: 1px solid red;   */
     padding: 0 1rem 1rem 1rem;
     font-size: var(--font-size);
+    justify-content: flex-end;
+
   }
 
 .links {
@@ -50,7 +52,9 @@ width: 50%;
 padding: 0;
 margin:0;
 display: flex;
-flex-direction: column
+flex-direction: column;
+justify-content: flex-end; /* Aligns content to the bottom within the column */
+
 }
 
 @media (max-width: 768px) {
