@@ -87,7 +87,7 @@
         flex-direction: column;
         padding: 0.5rem;
         /* height: calc(90vh - env(safe-area-inset-top)); */
-        height: 80vh;
+        height: 90vh;
     }
     
     .column_1, 
