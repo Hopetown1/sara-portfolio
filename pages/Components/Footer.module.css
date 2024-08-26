@@ -67,7 +67,8 @@ justify-content: flex-end; /* Aligns content to the bottom within the column */
     align-self: bottom;
    }
   .footer {
-   height: auto;
+   /* height: auto; */
+   height: 15vh;
    padding: 0rem 0.5rem 0.5rem 0.5rem;
    align-items: flex-end;
   }
