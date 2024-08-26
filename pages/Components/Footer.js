@@ -1,4 +1,7 @@
 // Footer.js
+import {client} from '../../sanity/lib/client';
+import React, {useEffect, useState} from 'react';
+import styles from './Footer.module.css';
 const Footer = () => {
 
   const [saraInfo, setSaraInfo] = useState(null);
@@ -42,6 +45,5 @@ const Footer = () => {
   );
 };
 export default Footer;
-import React, {useEffect, useState} from 'react';
-import styles from './Footer.module.css';
-import {client} from '../client../sanity/lib/' // Adjust the path if necessary
+
+// import {client} from '../client../sanity/lib/' // Adjust the path if necessary
