@@ -61,6 +61,7 @@
     margin: 0;
     width: fit-content;
     cursor: pointer; 
+    line-height: 16px;
 }
 
 .projectList .p:hover, 
@@ -96,6 +97,7 @@
     } 
     .text_1 {
         margin-top: 1rem;
+        line-height: 1.1;
     }
     .text_2_line1{
         margin-top: 1rem;

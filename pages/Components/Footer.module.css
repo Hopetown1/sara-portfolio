@@ -61,10 +61,13 @@ justify-content: flex-end; /* Aligns content to the bottom within the column */
    .links {
     font-size: 14px;
     align-self: bottom;
+    line-height: 16px;
    }
    .links_green {
     font-size: 14px;
     align-self: bottom;
+    line-height: 16px;
+
    }
   .footer {
    /* height: auto; */
