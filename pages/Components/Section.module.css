@@ -61,7 +61,6 @@
     margin: 0;
     width: fit-content;
     cursor: pointer; 
-    line-height: 16px;
 }
 
 .projectList .p:hover, 
@@ -88,9 +87,14 @@
         flex-direction: column;
         padding: 0.5rem;
         /* height: calc(90vh - env(safe-area-inset-top)); */
-        height: 85dvh;
+        height: 91dvh;
     }
-    
+    .p {
+        margin: 0;
+        width: fit-content;
+        cursor: pointer; 
+        line-height: 16px;
+    }
     .column_1, 
     .column_2 { 
         width: 100%;

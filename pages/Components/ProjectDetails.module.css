@@ -22,13 +22,11 @@ font-family: inherit;
     padding:0;
     margin:0;
     color: rgba(0, 0, 0, 0.4);
-    margin-top: -4px;
 }
 .text_2_line3{
     padding:0;
     margin:0;
     color: rgba(0, 0, 0, 0.4);
-    margin-top: -4px;
 }
 
 .imageContainer {
@@ -82,5 +80,17 @@ font-family: inherit;
     }
     .text_1{
       line-height: 16px;
-  }
+    }
+    .text_2_line2{
+      padding:0;
+      margin:0;
+      color: rgba(0, 0, 0, 0.4);
+      margin-top: -4px;
+    }
+    .text_2_line3{
+      padding:0;
+      margin:0;
+      color: rgba(0, 0, 0, 0.4);
+      margin-top: -4px;
+    }
   }
