@@ -78,4 +78,7 @@ font-family: inherit;
     .column_wrapper{
       padding-top: 3vh;
     }
+    .text_1{
+      line-height: 1.1;
+  }
   }
