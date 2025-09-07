@@ -54,25 +54,37 @@ margin:0;
 display: flex;
 flex-direction: column;
 justify-content: flex-end; /* Aligns content to the bottom within the column */
+height: 100%; /* Make column take full footer height */
+}
+
+.column:last-child {
+  justify-content: space-evenly; /* Only the right column distributes evenly */
+  gap: calc((100% - 4 * 1em) / 3); /* Create even gaps between 4 items */
 
 }
 
 @media (max-width: 768px) {
-   .links {
-    font-size: 14px;
-    align-self: bottom;
-    line-height: 16px;
-   }
-   .links_green {
-    font-size: 14px;
-    align-self: bottom;
-    line-height: 16px;
-
-   }
+  .links {
+    font-size: 0.75em;
+    line-height: 1;
+    margin: 0;
+  }
+  .links_green {
+    font-size: 0.75em;
+    line-height: 1;
+    margin: 0;
+  }
   .footer {
-   /* height: auto; */
-   height: 9dvh;
-   padding: 0rem 0.5rem 0.5rem 0.5rem;
-   align-items: flex-end;
+    height: 10dvh;
+    padding: 0rem 0.5rem 0.5rem 0.5rem;
+    align-items: stretch;
+    font-size: 0.75em;
   }
+  .column {
+    justify-content: flex-end; /* Left column stays at bottom */
   }
+  .column:last-child {
+    justify-content: flex-end; /* Anchor to bottom */
+    gap: calc((100% - 4 * 0.75em) / 3); /* Adjust for mobile font size */
+  }
+}
