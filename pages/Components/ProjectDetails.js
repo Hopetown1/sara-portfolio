@@ -52,65 +52,59 @@ const ProjectDetails = ({ project }) => {
             </p> 
          )}
 
-         {/* Render the image container */}
+         {/* Render the media container */}
          <div className={styles.imageContainer}>
-            {/* Map through the images and render each one */}
-
-            
-            {project.images && project.images.map((image, index) => {
-               // Generate the URL for the image
-               const imageUrl = builder.image(image.image).url()
+            {/* Map through the media and render each one */}
+            {project.images && project.images.map((mediaItem, index) => {
+               // Handle both old (image) and new (media) data structures
+               const mediaSource = mediaItem.media || mediaItem.image;
+               
+               // Check if it's a video or image based on file extension
+               const isVideo = mediaSource?.asset?._type === 'file' && 
+                              mediaSource?.asset?.extension?.toLowerCase() === 'mp4';
+               
+               // Generate the URL for the media
+               const mediaUrl = isVideo 
+                  ? `https://cdn.sanity.io/files/${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}/${process.env.NEXT_PUBLIC_SANITY_DATASET}/${mediaSource.asset._ref.replace('file-', '').replace('-mp4', '.mp4')}`
+                  : builder.image(mediaSource).url();
+               
                return (
                   <div
-                     key={image._key}
+                     key={mediaItem._key}
                      className={
-                     // Set the appropriate CSS class based on the image layout
-                     image.layout === "stacked" 
-                        ? styles.stackedImage 
-                        : image.layout === "two per row"
-                           ? styles.twoPerRowImage
-                           : styles.threePerRowImage
-                     }
-                  >
-                     <Image
-                     src={imageUrl}
-                      style={{ height: '100%', width: '100%' }}
-                      alt={project.title}
-                     //  fill
-                      sizes='(max-width: 600px) 500px, 100vw'
-                     strategy="responsive"
-                     width={400}
-                     height={400}
-                     />
-                  </div>
-               )
-               })}
-
-            {/* {project.images && project.images.map((image, index) => {
-               // Generate the URL for the image
-               const imageUrl = builder.image(image.image).url()
-               return (
-                  // Render the image element
-                  // eslint-disable-next-line @next/next/no-img-element
-                  
-                  <Image
-                     src={imageUrl}
-                     alt={project.title}
-                     key={image._key}
-                     className={
-                        // Set the appropriate CSS class based on the image layout
-                        image.layout === "stacked" 
+                        // Set the appropriate CSS class based on the media layout
+                        mediaItem.layout === "stacked" 
                            ? styles.stackedImage 
-                           : image.layout === "two per row"
+                           : mediaItem.layout === "two per row"
                               ? styles.twoPerRowImage
                               : styles.threePerRowImage
                      }
-                     fill
-                     sizes='(max-width: 600px) 500px, 600px'
-                     
-                  />
+                  >
+                     {isVideo ? (
+                        <video
+                           autoPlay
+                           loop
+                           muted
+                           playsInline
+                           style={{ height: '100%', width: '100%', objectFit: 'cover' }}
+                        >
+                           <source src={mediaUrl} type="video/mp4" />
+                        </video>
+                     ) : (
+                        <Image
+                           src={mediaUrl}
+                           style={{ height: '100%', width: '100%' }}
+                           alt={project.title}
+                           sizes='(max-width: 600px) 500px, 100vw'
+                           strategy="responsive"
+                           width={400}
+                           height={400}
+                        />
+                     )}
+                  </div>
                )
-            })} */}
+            })}
+
          </div>
       </div> 
    );

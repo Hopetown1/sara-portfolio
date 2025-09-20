@@ -34,12 +34,19 @@ export const schema_2 = [
       { name: 'order', title: 'Order', type: 'number' }, // New field for order
       {
         name: 'images',
-        title: 'Images',
+        title: 'Media',
         type: 'array', 
         of: [{
           type: 'object',
           fields: [
-            { name: 'image', type: 'image', title: 'Image' },
+            { 
+              name: 'media', 
+              type: 'file', 
+              title: 'Media File',
+              options: {
+                accept: 'image/*,video/mp4,video/quicktime'
+              }
+            },
             { 
               name: 'layout', 
               type: 'string', 
