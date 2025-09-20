@@ -59,14 +59,24 @@ const ProjectDetails = ({ project }) => {
                // Handle both old (image) and new (media) data structures
                const mediaSource = mediaItem.media || mediaItem.image;
                
-               // Check if it's a video or image based on file extension
-               const isVideo = mediaSource?.asset?._type === 'file' && 
-                              mediaSource?.asset?.extension?.toLowerCase() === 'mp4';
+               // Check if it's a video or image based on the _type
+               const isVideo = mediaSource?._type === 'file';
+               const isImage = mediaSource?._type === 'image';
                
                // Generate the URL for the media
-               const mediaUrl = isVideo 
-                  ? `https://cdn.sanity.io/files/${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}/${process.env.NEXT_PUBLIC_SANITY_DATASET}/${mediaSource.asset._ref.replace('file-', '').replace('-mp4', '.mp4')}`
-                  : builder.image(mediaSource).url();
+               let mediaUrl;
+               if (isVideo) {
+                  // For videos, construct the URL directly
+                  const fileRef = mediaSource.asset._ref;
+                  const fileId = fileRef.replace('file-', '').replace('-mp4', '');
+                  mediaUrl = `https://cdn.sanity.io/files/${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}/${process.env.NEXT_PUBLIC_SANITY_DATASET}/${fileId}.mp4`;
+               } else if (isImage) {
+                  // For images, use the builder
+                  mediaUrl = builder.image(mediaSource).url();
+               } else {
+                  console.error('Invalid media source type:', mediaSource?._type);
+                  return null; // Skip this item
+               }
                
                return (
                   <div
