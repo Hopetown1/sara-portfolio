@@ -3,8 +3,7 @@
     width: 100%;
     display: flex;  /* Two columns */
     /* padding: 10px; */
-    box-sizing: border-box; 
-    height: 10vh;
+    box-sizing: border-box;
     font-family: inherit;
     font-weight: inherit;
     font-style: inherit;
@@ -58,24 +57,19 @@ height: 100%; /* Make column take full footer height */
 }
 
 .column:last-child {
-  justify-content: space-evenly; /* Only the right column distributes evenly */
-  gap: calc((100% - 4 * 1em) / 3); /* Create even gaps between 4 items */
-
+  justify-content: flex-end; /* Anchor links to the bottom, stacked at natural line-height */
 }
 
 @media (max-width: 768px) {
   .links {
     font-size: 0.75em;
-    line-height: 1;
     margin: 0;
   }
   .links_green {
     font-size: 0.75em;
-    line-height: 1;
     margin: 0;
   }
   .footer {
-    height: 10dvh;
     padding: 0rem 0.5rem 0.5rem 0.5rem;
     align-items: stretch;
     font-size: 0.75em;
@@ -85,6 +79,5 @@ height: 100%; /* Make column take full footer height */
   }
   .column:last-child {
     justify-content: flex-end; /* Anchor to bottom */
-    gap: calc((100% - 4 * 0.75em) / 3); /* Adjust for mobile font size */
   }
 }

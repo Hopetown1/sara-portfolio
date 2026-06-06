@@ -41,7 +41,7 @@ export default function Home() {
         {/* {appearance && <link rel="stylesheet" href={`${appearance.font}`} />} */}
       </Head>
 
-      <main style={{ backgroundColor: '#7414140' }}>
+      <main style={{ backgroundColor: '#7414140', display: 'flex', flexDirection: 'column', height: '100dvh' }}>
         <Section />
         <Footer /> 
       </main>
