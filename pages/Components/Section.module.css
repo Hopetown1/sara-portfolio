@@ -61,7 +61,10 @@
 .p {
     margin: 0;
     width: fit-content;
-    cursor: pointer; 
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
 }
 
 .projectList .p:hover, 

@@ -1,29 +1,10 @@
 // Footer.js
-import {client} from '../../sanity/lib/client';
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import styles from './Footer.module.css';
+import { usePortfolio } from '@/context/PortfolioContext';
 const Footer = () => {
 
-  const [saraInfo, setSaraInfo] = useState(null);
-  const [appearance, setAppearance] = useState(null);
-  useEffect(() => {
-    // Fetch the documents in the `sara_info` dataset
-    client
-    .fetch('*[_type == "sara_info"]')
-    .then((data) => {
-      setSaraInfo(data[0]);
-      // console.log('saraInfo:', data[0])
-    })
-    .catch(console.error);
-    
-    client
-    .fetch('*[_type == "appearance"]')
-    .then((data) => {
-      // console.log('Fetched appearance data:', data);
-      setAppearance(data[0]);
-    })
-    .catch(console.error);
-  }, []);
+  const { saraInfo, appearance } = usePortfolio();
   return (
     <footer className={styles.footer} style={{ fontSize: appearance && appearance.font_size }}>
       
